@@ -85,7 +85,9 @@ namespace CodeTranslater
         {
             Console.WriteLine($"Translating: {fi.FullName}");
 
-            Regex rgx = new Regex("(/\\*([^*]|[\\r\\n]|(\\*+([^*/]|[\\r\\n])))*\\*+/)|(//.*)|([\"'](?:(?<=\")[^\"\\\\]*(?s:\\\\.[^\"\\\\]*)*\"))", RegexOptions.None);
+            // Regex rgx = new Regex("(/\\*([^*]|[\\r\\n]|(\\*+([^*/]|[\\r\\n])))*\\*+/)|(//.*)|([\"'](?:(?<=\")[^\"\\\\]*(?s:\\\\.[^\"\\\\]*)*\"))", RegexOptions.None);
+            Regex rgx = new Regex("((?<=\\/\\*)(.|[\\r\\n])*?(?=\\*\\/))|((?<=\\/\\/).*)|((?<=\\bException\\(\")(.|[\\r\\n])*?(?=\"\\)))");
+
             Regex engRgx = new Regex("^[ -~]*$");
 
             var content = File.ReadAllText(fi.FullName);
@@ -115,24 +117,24 @@ namespace CodeTranslater
                     var targetContent = target.Value;
                     if (targetContent.Length > 0 && !targetContent.ToLower().StartsWith("\"http") && !engRgx.IsMatch(targetContent))
                     {
-                        var isComment = false;
-                        var commentPrefix = "";
-                        if (targetContent.TrimStart().StartsWith("///"))
-                        {
-                            isComment = true;
-                            commentPrefix = "///";
-                        }
-                        else if (targetContent.TrimStart().StartsWith("//"))
-                        {
-                            isComment = true;
-                            commentPrefix = "//";
-                        }
-
-                        if (isComment)
-                        {
-                            originContent = originContent.TrimStart();
-                            targetContent = originContent.Replace(commentPrefix, "");
-                        }
+                        // var isComment = false;
+                        // var commentPrefix = "";
+                        // if (targetContent.TrimStart().StartsWith("///"))
+                        // {
+                        //     isComment = true;
+                        //     commentPrefix = "///";
+                        // }
+                        // else if (targetContent.TrimStart().StartsWith("//"))
+                        // {
+                        //     isComment = true;
+                        //     commentPrefix = "//";
+                        // }
+                           
+                        // if (isComment)
+                        // {
+                        //     originContent = originContent.TrimStart();
+                        //     targetContent = originContent.Replace(commentPrefix, "");
+                        // }
 
                         targetContent = TryTranslate(trans, targetContent, From, To);
                         if (targetContent == null)
@@ -157,10 +159,10 @@ namespace CodeTranslater
                             targetContent = targetContent.Replace("< /", "</");
                             targetContent = targetContent.Replace("</ ", "</");
 
-                            if (isComment)
-                            {
-                                targetContent = commentPrefix + targetContent;
-                            }
+                            //if (isComment)
+                            //{
+                            //    targetContent = commentPrefix + targetContent;
+                            //}
                         }
 
                         lock (contentLocker)

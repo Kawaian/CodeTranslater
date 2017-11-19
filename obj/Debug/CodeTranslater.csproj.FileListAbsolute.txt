@@ -5,3 +5,10 @@ C:\Users\AinL\Documents\Visual Studio 2017\Projects\CodeTranslater\CodeTranslate
 C:\Users\AinL\Documents\Visual Studio 2017\Projects\CodeTranslater\CodeTranslater\obj\Debug\CodeTranslater.exe
 C:\Users\AinL\Documents\Visual Studio 2017\Projects\CodeTranslater\CodeTranslater\obj\Debug\CodeTranslater.pdb
 C:\Users\AinL\Documents\Visual Studio 2017\Projects\CodeTranslater\CodeTranslater\obj\Debug\CodeTranslater.csprojResolveAssemblyReference.cache
+G:\Users\Matyas\Projects\CodeTranslater\bin\Debug\CodeTranslater.exe.config
+G:\Users\Matyas\Projects\CodeTranslater\bin\Debug\CodeTranslater.exe
+G:\Users\Matyas\Projects\CodeTranslater\bin\Debug\CodeTranslater.pdb
+G:\Users\Matyas\Projects\CodeTranslater\obj\Debug\CodeTranslater.csprojResolveAssemblyReference.cache
+G:\Users\Matyas\Projects\CodeTranslater\obj\Debug\CodeTranslater.csproj.CoreCompileInputs.cache
+G:\Users\Matyas\Projects\CodeTranslater\obj\Debug\CodeTranslater.exe
+G:\Users\Matyas\Projects\CodeTranslater\obj\Debug\CodeTranslater.pdb
